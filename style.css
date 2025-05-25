@@ -28,12 +28,15 @@ ul {
 
 /* Header */
 header {
-    background-color: #ffffff;
+    background-color: #cefec9;
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(8px);
 }
 
 header .container {
@@ -115,11 +118,42 @@ nav ul li a:hover {
     color: white;
     text-align: center;
     padding: 100px 20px;
-    min-height: 500px;
+    min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    box-shadow: 20px 20px 10px rgba(208, 208, 208, 0.5);
+    animation: slider 30s linear infinite;
+}
+
+@keyframes slider {
+    0% {
+        background-image: url('pics/ChatGPT Image May 25, 2025, 11_07_13 PM.png');
+    }
+
+    30% {
+        background-image: url('pics/9a00e6be-1f6e-427d-a36b-ad71c30a7701.jpg');
+    }
+
+    60% {
+        background-image: url('pics/1_MeychflOLBrEkcBeUtY6IQ.png');
+    }
+
+    100% {
+        background-image: url('pics/1533f7e4-01c3-4c57-a6e2-1ecd371a94b2.jpg');
+    }
+    
+}
+
 
 .hero h1 {
     font-size: 3em;
@@ -185,7 +219,28 @@ h2 {
 
 /* Marketplace Section */
 .marketplace-section {
-    background-color: #e0f7e0;
+    background-color: #1cc01c;
+}
+.marketplace-section {
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    box-shadow: 20px 20px 10px rgba(208, 208, 208, 0.5);
+    animation: slider 10s linear infinite;
+}
+
+@keyframes slider {
+    0% {
+        background-image: url('pics/6e4132c3-fe36-488f-b9da-e03bf45156d9.jpg');
+    }
+
+    100% {
+        background-image: url('pics/71d21a85-7780-4687-aa63-6f19073ce091.jpg');
+    }
+    
 }
 
 .marketplace-options {
@@ -438,4 +493,7 @@ footer {
     nav ul li {
         margin: 0 5px 10px 5px;
     }
+}
+body{
+    font-family: "Ubuntu";
 }
