@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-  <title>Home Page</title>
+  <title>AgriConnect - Your Farm Partner</title>
 </head>
 <body>
-  <header>
+    <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="AgriConnect Logo"> <span>AgriConnect</span>
+                <img src="logo.png" alt="Agri-Assist Logo"> <span>Agri-Assist</span>
             </div>
             <nav>
                 <ul>
@@ -67,5 +67,50 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="marketplace" class="marketplace-section">
+            <div class="container">
+                <h2>Agri-Assist Marketplace</h2>
+                <p>Connect with buyers and sellers. Find what you need or sell your produce and tools directly.</p>
+                <div class="marketplace-options">
+                    <div class="marketplace-card">
+                        <h3>Buy Farming Tools & Feeds</h3>
+                        <p>Browse a wide range of essential farming equipment, quality seeds, and livestock feeds.</p>
+                        <a href="#" class="btn btn-secondary disabled">Browse Products (Coming Soon)</a>
+                    </div>
+                    <div class="marketplace-card">
+                        <h3>Sell Your Products</h3>
+                        <p>Have surplus crops, healthy livestock, or used tools? List them here for local and regional buyers.</p>
+                        <a href="sell.html" class="btn btn-primary">Start Selling Now</a> </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weather-demo" class="weather-demo-section">
+            <div class="container">
+                <h2>Current Local Weather (Powered by API)</h2>
+                <p>See how Agri-Assist can give you vital weather information for your farm.</p>
+                <div class="weather-widget">
+                    <p>Fetching weather for Rungiri, Kiambu County, Kenya...</p>
+                    <div id="weather-info">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Agri-Assist. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
