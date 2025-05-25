@@ -113,6 +113,27 @@
     <div class="auth-page">
     <div class="auth-container">
         <div class="auth-box">
+            <h2>Login to Agri-Assist</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </form>
+            <div id="login-message" class="message"></div>
+        </div>
+    </div>
+  </div>
+
+    <div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-box">
             <h2>Create Your AgriConnect Account</h2>
             <form id="signup-form">
                 <div class="input-group">
@@ -137,9 +158,9 @@
             <div id="signup-message" class="message"></div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
   </div>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
