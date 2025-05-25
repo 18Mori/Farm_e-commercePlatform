@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #4CAF50;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+.btn-secondary:hover {
+    background-color: #e0f7e0;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('farm-hero.jpg') no-repeat center center/cover; /* Add a farm-hero.jpg image */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Features Section */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Marketplace Section */
+.marketplace-section {
+    background-color: #e0f7e0;
+}
+
+.marketplace-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.marketplace-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+}
+
+.marketplace-card h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.marketplace-card p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* Weather Demo Section */
+.weather-demo-section {
+    background-color: #f8f8f8;
+}
+
+.weather-widget {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#weather-info {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+#weather-info p {
+    margin-bottom: 10px;
+}
+
+#weather-info strong {
+    color: #333;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: white;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+}
+
+/* Authentication Pages (Login/Signup) */
+.auth-page {
+    background: linear-gradient(to right, #4CAF50, #7ED321);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-container {
+    max-width: 450px;
+    width: 100%;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.auth-box h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.input-group input, .input-group textarea, .input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-switch {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.auth-switch a {
+    font-weight: 700;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: none; /* Hidden by default */
+}
+
+.message.success {
+    background-color: #e0f7e0;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.message.error {
+    background-color: #ffe0e0;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Sell Page Specific */
+.sell-page-main {
+    padding-top: 80px; /* To account for sticky header */
+}
+
+.sell-form-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: left;
+}
+
+.sell-form-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sell-form-section p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px 10px 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .auth-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        font-size: 1.5em;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .btn-large {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    nav ul li {
+        margin: 0 5px 10px 5px;
+    }
+}
