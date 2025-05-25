@@ -13,7 +13,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="Agri-Assist Logo"> <span>Agri-Assist</span>
+                <img src="logo.png" alt="AgriConnect Logo"> <span>AgriConnect</span>
             </div>
             <nav>
                 <ul>
@@ -32,14 +32,14 @@
         <section class="hero">
             <div class="container">
                 <h1>Grow Smarter, Not Harder</h1>
-                <p>Agri-Assist empowers farmers like Elias with intelligent tools, real-time insights, and a thriving marketplace.</p>
+                <p>AgriConnect empowers farmers like Elias with intelligent tools, real-time insights, and a thriving marketplace.</p>
                 <a href="signup.html" class="btn btn-primary btn-large">Get Started Today</a>
             </div>
         </section>
 
         <section id="features" class="features-section">
             <div class="container">
-                <h2>How Agri-Assist Helps You</h2>
+                <h2>How AgriConnect Helps You</h2>
                 <div class="feature-grid">
                     <div class="feature-item">
                         <h3>Smart Farm Management</h3>
@@ -71,7 +71,7 @@
 
         <section id="marketplace" class="marketplace-section">
             <div class="container">
-                <h2>Agri-Assist Marketplace</h2>
+                <h2>AgriConnect Marketplace</h2>
                 <p>Connect with buyers and sellers. Find what you need or sell your produce and tools directly.</p>
                 <div class="marketplace-options">
                     <div class="marketplace-card">
@@ -90,7 +90,7 @@
         <section id="weather-demo" class="weather-demo-section">
             <div class="container">
                 <h2>Current Local Weather (Powered by API)</h2>
-                <p>See how Agri-Assist can give you vital weather information for your farm.</p>
+                <p>See how AgriConnect can give you vital weather information for your farm.</p>
                 <div class="weather-widget">
                     <p>Fetching weather for Rungiri, Kiambu County, Kenya...</p>
                     <div id="weather-info">
@@ -102,13 +102,44 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Agri-Assist. All rights reserved.</p>
+            <p>&copy; 2025 AgriConnect. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
+
+    <div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Create Your AgriConnect Account</h2>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="fullName" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <p class="auth-switch">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+            <div id="signup-message" class="message"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
