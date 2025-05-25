@@ -141,15 +141,15 @@ nav ul li a:hover {
     }
 
     30% {
-        background-image: url('pics/9a00e6be-1f6e-427d-a36b-ad71c30a7701.jpg');
+        background-image: url('pics/71d21a85-7780-4687-aa63-6f19073ce091.jpg');
     }
-
+    
     60% {
         background-image: url('pics/1_MeychflOLBrEkcBeUtY6IQ.png');
     }
-
+    
     100% {
-        background-image: url('pics/1533f7e4-01c3-4c57-a6e2-1ecd371a94b2.jpg');
+        background-image: url('pics/9a00e6be-1f6e-427d-a36b-ad71c30a7701.jpg');
     }
     
 }
@@ -182,7 +182,13 @@ section:nth-child(even) {
 h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: #333;
+    color: #54c2e0;
+}
+
+p {
+    font-size: 1.1em;
+    color: #018be1;    
+    font-weight: bold;
 }
 
 /* Features Section */
@@ -219,7 +225,7 @@ h2 {
 
 /* Marketplace Section */
 .marketplace-section {
-    background-color: #1cc01c;
+    background-color: #dafdd8;
 }
 .marketplace-section {
     width: 100%;
@@ -229,18 +235,7 @@ h2 {
     /* background-repeat: no-repeat; */
     background-attachment: fixed;
     box-shadow: 20px 20px 10px rgba(208, 208, 208, 0.5);
-    animation: slider 10s linear infinite;
-}
-
-@keyframes slider {
-    0% {
-        background-image: url('pics/6e4132c3-fe36-488f-b9da-e03bf45156d9.jpg');
-    }
-
-    100% {
-        background-image: url('pics/71d21a85-7780-4687-aa63-6f19073ce091.jpg');
-    }
-    
+    background-image: url(pics/2229e9fb-2785-4a88-941d-87c1e6c66d94.jpg);
 }
 
 .marketplace-options {
@@ -496,4 +491,12 @@ footer {
 }
 body{
     font-family: "Ubuntu";
+}
+.hero> .container{
+    background-color: #0b090951;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 50px auto
 }
