@@ -16,7 +16,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo"> <span>AgriConnect</span>
+                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo"><span>AgriConnect</span>
             </div>
             <nav>
                 <ul>
@@ -26,6 +26,22 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="login.html" class="btn btn-primary">Login</a></li>
                     <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
+                    <li class="cart-icon-container">
+    <a href="#" id="cart-toggle" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="cart-count">0</span>
+    </a>
+    <div id="cart-dropdown" class="cart-dropdown-content">
+        <h4>Your Cart <span id="cart-dropdown-count">(0 items)</span></h4>
+        <div id="cart-items-container">
+            <p id="empty-cart-message" style="text-align: center; color: #777;">Your cart is empty.</p>
+        </div>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total">KSh 0</span></p>
+            <button class="btn btn-primary" id="checkout-button">Proceed to Checkout</button>
+        </div>
+    </div>
+</li>
                 </ul>
             </nav>
         </div>

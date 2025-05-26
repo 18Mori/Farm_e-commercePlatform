@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agri-Assist - Buy Farming Tools & Feeds</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.html">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="Agri-Assist Logo"> <span>Agri-Assist</span>
+                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo"> <span>AgriConnect</span>
             </div>
             <nav>
                 <ul>
@@ -21,6 +23,22 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="login.html" class="btn btn-primary">Login</a></li>
                     <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
+                    <li class="cart-icon-container">
+    <a href="#" id="cart-toggle" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="cart-count">0</span>
+    </a>
+    <div id="cart-dropdown" class="cart-dropdown-content">
+        <h4>Cart<span id="cart-dropdown-count">(0 items)</span></h4>
+        <div id="cart-items-container">
+            <p id="empty-cart-message" style="text-align: center; color: #777;">Your cart is empty.</p>
+        </div>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total">KSh 0</span></p>
+            <button class="btn btn-primary" id="checkout-button">Proceed to Checkout</button>
+        </div>
+    </div>
+</li>
                 </ul>
             </nav>
         </div>
@@ -198,16 +216,20 @@
             $('#product-search').on('input', applyFiltersAndSort); // 'input' event for real-time search as user types
             $('#search-button').on('click', applyFiltersAndSort); // Also trigger on button click
 
-            // --- Conceptual Add to Cart Functionality ---
-            // This listener is for dynamically added product cards.
-            $productList.on('click', '.add-to-cart', function() {
-                const productId = $(this).data('id');
-                const productName = $(this).siblings('h3').text(); // Get product name from the card's h3
-                // In a real e-commerce system, this would send an AJAX request to your backend
-                // (e.g., POST to '/api/cart/add') to update the user's shopping cart in the database.
-                alert(`Product "${productName}" (ID: ${productId}) has been conceptually added to your cart!`);
-                console.log(`Attempted to add product ID: ${productId} to cart.`);
-            });
+            // --- Actual Add to Cart Functionality ---
+// This listener is for dynamically added product cards.
+$productList.on('click', '.add-to-cart', function() {
+    const productId = $(this).data('id');
+    // Find the full product details from the `allProducts` array
+    const product = allProducts.find(p => p.id === productId);
+
+    if (product) {
+        // Call the global addToCart function defined in script.js
+        addToCart(product.id, product.name, product.price_ksh, product.image_url);
+    } else {
+        console.error('Product not found in allProducts array:', productId);
+    }
+});
         });
     </script>
 </body>
