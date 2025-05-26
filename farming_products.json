@@ -1,0 +1,102 @@
+[
+    {
+        "id": "farm001",
+        "name": "High-Yield Hybrid Maize Seeds",
+        "quantity_unit": "10 kg bag",
+        "description": "Disease-resistant and fast-growing hybrid maize seeds, suitable for Kiambu's climate. Expected yield: 3-5 tons/acre.",
+        "price_ksh": 2800,
+        "category": "seeds",
+        "image_url": "https://imgs.search.brave.com/Bd6ITx2Ub2PB3uzyZzID0n24orWMA0LCA_Zj1n28jbE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vZldOT1hm/VWg5X1ZuaEdLR0pq/Nm1wOHh1SEdvVTlB/VERSNFk5TDY1X1U0/OC9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlw/YldGbi9aWE10Ym1F/dWMzTnNMV2x0L1lX/ZGxjeTFoYldGNmIy/NHUvWTI5dEwybHRZ/V2RsY3k5Si9Mell4/ZEZGcFRuZFhOWEZN/L0xtcHdadw.jpeg",
+        "supplier": "Green Harvest Agri-Supplies"
+    },
+    {
+        "id": "farm002",
+        "name": "Heavy Duty Garden Shovel",
+        "quantity_unit": "1 unit",
+        "description": "Ergonomic design with reinforced steel blade. Ideal for digging, lifting, and moving soil on the farm.",
+        "price_ksh": 1450,
+        "category": "tools",
+        "image_url": "https://imgs.search.brave.com/YFqUBCwzV6Z7a3G1YSgts6yPdIPQt6Dp8Sw61FKaq2s/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vOHFFRHlW/Y3FTZGg4a3ZyUTQx/Z0MyZV9mOVBBTlAx/SHRzM09PdmlLMDdH/dy9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTlw/YldGbi9aWE10Ym1F/dWMzTnNMV2x0L1lX/ZGxjeTFoYldGNmIy/NHUvWTI5dEwybHRZ/V2RsY3k5Si9MemN4/VGpFM1lsWlJObEJN/L0xtcHdadw.jpeg",
+        "supplier": "FarmTech Tools"
+    },
+    {
+        "id": "farm003",
+        "name": "Dairy Cattle Feed Pellets",
+        "quantity_unit": "50 kg bag",
+        "description": "High-protein feed pellets formulated to boost milk production and overall cattle health. Fortified with essential vitamins and minerals.",
+        "price_ksh": 4200,
+        "category": "feeds",
+        "image_url": "https://5.imimg.com/data5/BR/WA/JJ/SELLER-28463510/dairy-cattle-feed-low-protein--500x500.jpg",
+        "supplier": "Livestock Nutrition Ltd."
+    },
+    {
+        "id": "farm004",
+        "name": "Portable Manual Sprayer",
+        "quantity_unit": "15 Liters",
+        "description": "Backpack sprayer with adjustable nozzle for even distribution of pesticides or foliar fertilizers. Durable plastic tank.",
+        "price_ksh": 2100,
+        "category": "tools",
+        "image_url": "https://brandmaximizers.com/wp-content/uploads/2020/09/16L-Manual-Sprayer.png",
+        "supplier": "Agri-Solutions Kenya"
+    },
+    {
+        "id": "farm005",
+        "name": "Kienyeji Chicken Layer Mash",
+        "quantity_unit": "25 kg bag",
+        "description": "Specially formulated feed for Kienyeji (local) laying hens to maximize egg production and shell quality.",
+        "price_ksh": 2650,
+        "category": "feeds",
+        "image_url": "https://unga-group.com/wp-content/uploads/2019/06/Finisher-pellets-400x400.png",
+        "supplier": "Poultry Pro Feeds"
+    },
+    {
+        "id": "farm006",
+        "name": "Drought-Resistant Bean Seeds",
+        "quantity_unit": "2 kg bag",
+        "description": "Fast-maturing bean variety suitable for erratic rainfall areas. Good for intercropping.",
+        "price_ksh": 850,
+        "category": "seeds",
+        "image_url": "https://news.malevus.com/wp-content/uploads/2025/03/the-superpower-of-bean.jpg",
+        "supplier": "Seedling Innovations"
+    },
+    {
+        "id": "farm007",
+        "name": "Irrigation Drip Kit (Small Scale)",
+        "quantity_unit": "1 kit",
+        "description": "Complete kit for a 1/4 acre farm. Includes main line, drip lines, emitters, and connectors for efficient water usage.",
+        "price_ksh": 7500,
+        "category": "irrigation",
+        "image_url": "https://th.bing.com/th/id/OIP.l7HhBbcNJuTkrEywfjc6dAHaEU?cb=iwp2&rs=1&pid=ImgDetMain",
+        "supplier": "WaterWise Agri"
+    },
+    {
+        "id": "farm008",
+        "name": "Protective Farming Gloves",
+        "quantity_unit": "1 pair",
+        "description": "Durable, thorn-resistant gloves for protection during planting, weeding, and harvesting. Comfortable fit.",
+        "price_ksh": 350,
+        "category": "protective",
+        "image_url": "https://th.bing.com/th/id/OIP.cN4PADldvZupjVs19Oe0eQAAAA?cb=iwp2&rs=1&pid=ImgDetMain",
+        "supplier": "FarmGuard Safety"
+    },
+    {
+        "id": "farm009",
+        "name": "Pig Starter Mash",
+        "quantity_unit": "25 kg bag",
+        "description": "High-nutrient starter feed for young piglets (0-8 weeks) to promote rapid growth and health.",
+        "price_ksh": 2950,
+        "category": "feeds",
+        "image_url": "https://unga-group.com/wp-content/uploads/2019/05/pig-450x450.png",
+        "supplier": "Elite Feeds Co."
+    },
+    {
+        "id": "farm010",
+        "name": "Wheelbarrow (Heavy Duty)",
+        "quantity_unit": "1 unit",
+        "description": "Galvanized steel wheelbarrow with pneumatic tire for easy movement of soil, manure, or harvest.",
+        "price_ksh": 6800,
+        "category": "tools",
+        "image_url": "https://www.shshandlingsolutions.com/wp-content/uploads/2014/05/product_t_h_the-endurance-90l-galvanised.jpg",
+        "supplier": "Construction & Farm Supplies"
+    }
+]

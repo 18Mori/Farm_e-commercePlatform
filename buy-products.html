@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Assist - Buy Farming Tools & Feeds</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Agri-Assist Logo"> <span>Agri-Assist</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#marketplace">Marketplace</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+                    <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="buy-products-page-main">
+        <section class="container products-section">
+            <h2>Buy Farming Tools, Seeds & Feeds</h2>
+            <p>Empower your farm with quality supplies. Browse products from trusted suppliers.</p>
+
+            <div class="filter-sort-bar">
+                <div class="filter-group">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All</option>
+                        <option value="tools">Farming Tools</option>
+                        <option value="seeds">Seeds</option>
+                        <option value="feeds">Livestock Feeds</option>
+                        <option value="irrigation">Irrigation Systems</option>
+                        <option value="protective">Protective Gear</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort-by">Sort By:</label>
+                    <select id="sort-by">
+                        <option value="default">Default</option>
+                        <option value="price-low-high">Price: Low to High</option>
+                        <option value="price-high-low">Price: High to Low</option>
+                        <option value="name-asc">Name: A-Z</option>
+                        <option value="name-desc">Name: Z-A</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" id="product-search" placeholder="Search products...">
+                    <button id="search-button" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+            <div id="product-list" class="product-grid">
+                <p id="loading-message">Loading farming products...</p>
+            </div>
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Agri-Assist. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Global variable to store all products fetched from the JSON file
+        let allProducts = [];
+
+        /**
+         * Renders product cards into the #product-list container.
+         * @param {Array} productsToRender - An array of product objects to display.
+         */
+        function renderProducts(productsToRender) {
+            const $productList = $('#product-list');
+            $productList.empty(); // Clear existing products
+
+            if (productsToRender.length === 0) {
+                $productList.html('<p class="no-products-message">No farming products found matching your criteria.</p>');
+                return;
+            }
+
+            productsToRender.forEach(function(product) {
+                // Map the JSON data fields to our product card structure
+                const productId = product.id;
+                const productName = product.name;
+                const productQuantityUnit = product.quantity_unit;
+                const productDescription = product.description.substring(0, 100) + (product.description.length > 100 ? '...' : ''); // Truncate description
+                const productPrice = product.price_ksh;
+                const productImage = product.image_url;
+                const productCategory = product.category;
+                const productSupplier = product.supplier;
+
+                const productHtml = `
+                    <div class="product-card" data-category="${productCategory}">
+                        <img src="${productImage}" alt="${productName}" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x150?text=Image+Not+Found';">
+                        <h3>${productName} (${productQuantityUnit})</h3>
+                        <p class="product-description">${productDescription}</p>
+                        <p class="product-price">KSh ${productPrice.toLocaleString()}</p>
+                        <button class="btn btn-primary add-to-cart" data-id="${productId}">Add to Cart</button>
+                    </div>
+                `;
+                $productList.append(productHtml);
+            });
+        }
+
+        /**
+         * Applies filters (category, search) and sorting to the global product list.
+         * Then calls renderProducts to display the filtered/sorted results.
+         */
+        function applyFiltersAndSort() {
+            let filteredProducts = [...allProducts]; // Start with a copy of all products
+
+            // 1. Apply Category Filter
+            const selectedCategory = $('#category-filter').val();
+            if (selectedCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
+            }
+
+            // 2. Apply Search Filter
+            const searchTerm = $('#product-search').val().toLowerCase().trim();
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm) ||
+                    product.supplier.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // 3. Apply Sorting
+            const sortBy = $('#sort-by').val();
+            if (sortBy === 'price-low-high') {
+                filteredProducts.sort((a, b) => a.price_ksh - b.price_ksh);
+            } else if (sortBy === 'price-high-low') {
+                filteredProducts.sort((a, b) => b.price_ksh - a.price_ksh);
+            } else if (sortBy === 'name-asc') {
+                filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === 'name-desc') {
+                filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+            }
+
+            renderProducts(filteredProducts);
+        }
+
+        $(document).ready(function() {
+            const $loadingMessage = $('#loading-message');
+            const $productList = $('#product-list');
+
+            // --- Fetch Products via AJAX from the local JSON file ---
+            // In a real application, this URL would be your backend API endpoint, e.g., '/api/products'
+            const API_ENDPOINT = 'farming_products.json'; // Path to your local JSON file
+
+            $.ajax({
+                url: API_ENDPOINT,
+                method: 'GET',
+                dataType: 'json', // Expect JSON response
+                beforeSend: function() {
+                    $loadingMessage.show(); // Show loading message
+                    $productList.empty(); // Clear any previous content
+                },
+                success: function(data) {
+                    $loadingMessage.hide(); // Hide loading message
+                    if (data && data.length > 0) {
+                        allProducts = data; // Store all fetched products globally
+                        applyFiltersAndSort(); // Render initial products
+                    } else {
+                        $productList.html('<p class="no-products-message">No farming products available at the moment from the API.</p>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $loadingMessage.hide(); // Hide loading message
+                    $productList.html('<p class="error-message">Failed to load farming products. Please try again later. (Error: ' + status + ')</p>');
+                    console.error('Error fetching farming products:', error);
+                }
+            });
+
+            // --- Event Listeners for Filters, Sort, and Search ---
+            // These will trigger the filtering/sorting logic whenever the user interacts
+            $('#category-filter, #sort-by').on('change', applyFiltersAndSort);
+            $('#product-search').on('input', applyFiltersAndSort); // 'input' event for real-time search as user types
+            $('#search-button').on('click', applyFiltersAndSort); // Also trigger on button click
+
+            // --- Conceptual Add to Cart Functionality ---
+            // This listener is for dynamically added product cards.
+            $productList.on('click', '.add-to-cart', function() {
+                const productId = $(this).data('id');
+                const productName = $(this).siblings('h3').text(); // Get product name from the card's h3
+                // In a real e-commerce system, this would send an AJAX request to your backend
+                // (e.g., POST to '/api/cart/add') to update the user's shopping cart in the database.
+                alert(`Product "${productName}" (ID: ${productId}) has been conceptually added to your cart!`);
+                console.log(`Attempted to add product ID: ${productId} to cart.`);
+            });
+        });
+    </script>
+</body>
+</html>
