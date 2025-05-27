@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AgriConnect - Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img  src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#contact.html">Contact</a></li> <li class="cart-icon-container">
+                        <a href="#" id="cart-toggle" class="cart-link">
+                            <img src="pics/shopping-bag.svg" alt="">
+                            <span id="cart-count" class="cart-count animate-bounce">0</span>
+                        </a>
+                        <div id="cart-dropdown" class="cart-dropdown-content">
+                            <h4>Your Cart <span id="cart-dropdown-count">(0 items)</span></h4>
+                            <div id="cart-items-container">
+                                <p id="empty-cart-message" style="text-align: center; color: #777;">Your cart is empty.</p>
+                            </div>
+                            <div class="cart-summary">
+                                <p>Total: <span id="cart-total">KSh 0</span></p>
+                                <button class="btn btn-primary" id="checkout-button">Proceed to Checkout</button>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page-main">
+        <section class="container contact-section">
+            <h2>Get in Touch with AgriConnect</h2>
+            <p>We're here to help all farmers thrive. Reach out to us with your questions, feedback, or support needs.</p>
+
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <h3>Our Details</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> AgriConnect HQ, FarmTech Plaza, Machakos Town, Kenya</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:support@agriconnect.co.ke">support@agriassist.co.ke</a></p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+254712345678">+254 712 345 678</a></p>
+                    <p><i class="fas fa-clock"></i> Mon - Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+
+                <div class="contact-form-box">
+                    <h3>Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="input-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="contact-message">Your Message</label>
+                            <textarea id="contact-message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div id="contact-message-status" class="message"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <h2>Find Us on the Map</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.83597406394!2d37.25300975!3d-1.52309195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f80c6c0c0c0c1%3A0x123456789abcdef0!2sMachakos%2C%20Kenya!5e0!3m2!1sen!2sus!4v1678888888888!5m2!1sen!2sus"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AgriConnect. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                const name = $('#contact-name').val();
+                const email = $('#contact-email').val();
+                const subject = $('#contact-subject').val();
+                const message = $('#contact-message').val();
+                const statusDiv = $('#contact-message-status');
+
+                // Basic client-side validation
+                if (!name || !email || !subject || !message) {
+                    statusDiv.text('Please fill in all fields.').removeClass('success').addClass('error').show();
+                    return;
+                }
+
+                // In a real application, you would send this data to a backend
+                // (e.g., a contact form submission API endpoint or an email service).
+                // For this static demo, we'll just simulate success.
+                statusDiv.hide(); // Hide previous messages
+
+                $.ajax({
+                    url: '/api/contact', // This would be your backend endpoint
+                    method: 'POST',
+                    data: { name: name, email: email, subject: subject, message: message },
+                    beforeSend: function() {
+                        statusDiv.text('Sending your message...').removeClass('error success').show();
+                    },
+                    success: function(response) {
+                        // Simulate success after a delay
+                        setTimeout(function() {
+                            // In a real app, 'response.success' would come from your backend
+                            statusDiv.text('Message sent successfully! We will get back to you soon.').removeClass('error').addClass('success').show();
+                            $('#contact-form')[0].reset(); // Clear the form
+                        }, 1500);
+                    },
+                    error: function(xhr, status, error) {
+                        // Simulate error after a delay
+                        setTimeout(function() {
+                            statusDiv.text('Failed to send message. Please try again.').removeClass('success').addClass('error').show();
+                            console.error('Contact form submission error:', error);
+                        }, 1500);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

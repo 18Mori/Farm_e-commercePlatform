@@ -6,30 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
   <title>AgriConnect - Your Farm Partner</title>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo"><span>AgriConnect</span>
+                <img  src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo">
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#marketplace">Marketplace</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="login.html" class="btn btn-primary">Login</a></li>
-                    <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
                     <li class="cart-icon-container">
     <a href="#" id="cart-toggle" class="cart-link">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-count" class="cart-count">0</span>
+        <img src="pics/shopping-bag.svg" alt="">
+        <span id="cart-count" class="cart-count animate-bounce">0</span>
     </a>
     <div id="cart-dropdown" class="cart-dropdown-content">
         <h4>Your Cart <span id="cart-dropdown-count">(0 items)</span></h4>
@@ -49,7 +45,7 @@
 
     <main>
         <section class="hero">
-            <div class="container">
+            <div class="container ">
                 <h1>Grow Smarter, Not Harder</h1>
                 <p>AgriConnect empowers farmers with intelligent tools, real-time insights, and a thriving marketplace.</p>
                 <a href="signup.html" class="btn btn-primary btn-large">Get Started Today</a>
@@ -108,10 +104,10 @@
 
         <section id="weather-demo" class="weather-demo-section">
             <div class="container">
-                <h2>Current Local Weather (Powered by API)</h2>
+                <h2>Current Local Weather</h2>
                 <p>See how AgriConnect can give you vital weather information for your farm.</p>
                 <div class="weather-widget">
-                    <p>Fetching weather for Rungiri, Kiambu County, Kenya...</p>
+                    <p class="text-6xl animate-pulse">Coming Soon</p>
                     <div id="weather-info">
                         </div>
                 </div>

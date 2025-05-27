@@ -3,27 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AgriConnect - Sell Your Products</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="index.html" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="AgriConnect Logo">
-                <span>AgriConnect</span>
+                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo">
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#marketplace">Marketplace</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="login.html" class="btn btn-primary">Login</a></li>
-                    <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
+                    <li class="cart-icon-container">
+    <a href="#" id="cart-toggle" class="cart-link">
+        <img src="pics/shopping-bag.svg" alt="">
+        <span id="cart-count" class="cart-count animate-bounce">0</span>
+    </a>
+    <div id="cart-dropdown" class="cart-dropdown-content">
+        <h4>Your Cart <span id="cart-dropdown-count">(0 items)</span></h4>
+        <div id="cart-items-container">
+            <p id="empty-cart-message" style="text-align: center; color: #777;">Your cart is empty.</p>
+        </div>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total">KSh 0</span></p>
+            <button class="btn btn-primary" id="checkout-button">Proceed to Checkout</button>
+        </div>
+    </div>
+</li>
                 </ul>
             </nav>
         </div>
@@ -31,8 +43,7 @@
 
     <main class="sell-page-main">
         <section class="container sell-form-section">
-            <h2>List Your Farm Product</h2>
-            <p>Help Elias sell his green grams, pigeon peas, or even a goat!</p>
+            <p>List Your Farm Product</p>
             <form id="product-listing-form">
                 <div class="input-group">
                     <label for="product-name">Product Name</label>
@@ -59,7 +70,7 @@
                 <div class="input-group">
                     <label for="product-image">Upload Photo (Max 2MB)</label>
                     <input type="file" id="product-image" accept="image/*">
-                    <small>This is a placeholder. Real upload requires a backend.</small>
+                    <small>(Real upload requires a backend)</small>
                 </div>
                 <button type="submit" class="btn btn-primary">List Product</button>
             </form>

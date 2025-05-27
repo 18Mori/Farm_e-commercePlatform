@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Agri-Assist - Buy Farming Tools & Feeds</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="index.html">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo"> <span>AgriConnect</span>
+                <img width="50px" src="pics/agriconnect-logo.PNG" alt="AgriConnect Logo">
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#marketplace">Marketplace</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="login.html" class="btn btn-primary">Login</a></li>
-                    <li><a href="signup.html" class="btn btn-secondary">Sign Up</a></li>
                     <li class="cart-icon-container">
     <a href="#" id="cart-toggle" class="cart-link">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-count" class="cart-count">0</span>
+        <img src="pics/shopping-bag.svg" alt="">
+        <span id="cart-count" class="cart-count animate-bounce">0</span>
     </a>
     <div id="cart-dropdown" class="cart-dropdown-content">
         <h4>Cart<span id="cart-dropdown-count">(0 items)</span></h4>
@@ -46,7 +43,6 @@
 
     <main class="buy-products-page-main">
         <section class="container products-section">
-            <h2>Buy Farming Tools, Seeds & Feeds</h2>
             <p>Empower your farm with quality supplies. Browse products from trusted suppliers.</p>
 
             <div class="filter-sort-bar">
@@ -216,9 +212,16 @@
             $('#product-search').on('input', applyFiltersAndSort); // 'input' event for real-time search as user types
             $('#search-button').on('click', applyFiltersAndSort); // Also trigger on button click
 
-            // --- Actual Add to Cart Functionality ---
+            // --- Actual Add to Cart Functionality with Login Gate ---
 // This listener is for dynamically added product cards.
 $productList.on('click', '.add-to-cart', function() {
+    // Check if the user is logged in
+    if (!isLoggedIn()) { // isLoggedIn() is now a global function from script.js
+        alert('Please log in or sign up to add items to your cart.');
+        window.location.href = 'login.html'; // Redirect to login page
+        return; // Stop execution here
+    }
+
     const productId = $(this).data('id');
     // Find the full product details from the `allProducts` array
     const product = allProducts.find(p => p.id === productId);
