@@ -212,16 +212,9 @@
             $('#product-search').on('input', applyFiltersAndSort); // 'input' event for real-time search as user types
             $('#search-button').on('click', applyFiltersAndSort); // Also trigger on button click
 
-            // --- Actual Add to Cart Functionality with Login Gate ---
+            // --- Actual Add to Cart Functionality ---
 // This listener is for dynamically added product cards.
 $productList.on('click', '.add-to-cart', function() {
-    // Check if the user is logged in
-    if (!isLoggedIn()) { // isLoggedIn() is now a global function from script.js
-        alert('Please log in or sign up to add items to your cart.');
-        window.location.href = 'login.html'; // Redirect to login page
-        return; // Stop execution here
-    }
-
     const productId = $(this).data('id');
     // Find the full product details from the `allProducts` array
     const product = allProducts.find(p => p.id === productId);

@@ -30,5 +30,47 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#login-form').on('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                const username = $('#username').val(); // Can be username or email
+                const password = $('#password').val();
+                const messageDiv = $('#login-message');
+
+                messageDiv.hide().removeClass('error success').text(''); // Reset message
+
+                // Basic client-side validation
+                if (!username || !password) {
+                    messageDiv.text('Please enter both username/email and password.').addClass('error').show();
+                    return;
+                }
+
+                messageDiv.text('Logging in...').removeClass('error success').show();
+
+                // Simulate backend processing and check localStorage
+                setTimeout(function() {
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    const foundUser = users.find(user => user.email === username);
+
+                    if (foundUser) {
+                        // In a real app, compare hashed passwords
+                        if (foundUser.password === password) {
+                            messageDiv.text('Login successful! Redirecting...').removeClass('error').addClass('success').show();
+                            $('#login-form')[0].reset(); // Clear the form
+                            // Optional: Store login state (e.g., a session token or user info) in localStorage/sessionStorage
+                            // localStorage.setItem('loggedInUser', JSON.stringify({email: foundUser.email, fullName: foundUser.fullName}));
+                            setTimeout(function() { window.location.href = 'index.html'; }, 1500);
+                        } else {
+                            messageDiv.text('Login failed. Invalid username or password.').removeClass('success').addClass('error').show();
+                        }
+                    } else {
+                        messageDiv.text('Login failed. Invalid username or password.').removeClass('success').addClass('error').show();
+                    }
+                }, 1500); // Simulate 1.5 seconds delay
+            });
+        });
+    </script>
 </body>
 </html>

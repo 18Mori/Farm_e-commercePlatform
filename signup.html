@@ -38,5 +38,61 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#signup-form').on('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                const fullName = $('#full-name').val();
+                const email = $('#signup-email').val();
+                const password = $('#signup-password').val();
+                const confirmPassword = $('#confirm-password').val();
+                const messageDiv = $('#signup-message');
+
+                messageDiv.hide().removeClass('error success').text(''); // Reset message
+
+                // Basic client-side validation
+                if (!fullName || !email || !password || !confirmPassword) {
+                    messageDiv.text('Please fill in all fields.').addClass('error').show();
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    messageDiv.text('Passwords do not match.').addClass('error').show();
+                    return;
+                }
+
+                messageDiv.text('Creating your account...').removeClass('error success').show();
+
+                // Simulate backend processing and use localStorage
+                setTimeout(function() {
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    const existingUser = users.find(user => user.email === email);
+
+                    if (existingUser) {
+                        messageDiv.text('Email already registered. Please login or use a different email.').removeClass('success').addClass('error').show();
+                    } else {
+                        users.push({
+                            fullName: fullName,
+                            email: email,
+                            password: password // In a real app, HASH this password before storing
+                        });
+                        try {
+                            localStorage.setItem('users', JSON.stringify(users));
+                            messageDiv.text('Account created successfully! You can now login.').removeClass('error').addClass('success').show();
+                            $('#signup-form')[0].reset(); // Clear the form
+
+                            // Optional: Redirect to login page after a short delay
+                            // setTimeout(function() { window.location.href = 'login.html'; }, 2000);
+                        } catch (e) {
+                            // Handle potential storage errors (e.g., localStorage full)
+                            messageDiv.text('Could not create account. Storage error.').removeClass('success').addClass('error').show();
+                            console.error("Error saving to localStorage:", e);
+                        }
+                    }
+                }, 1500); // Simulate 1.5 seconds delay
+            });
+        });
+    </script>
 </body>
 </html>

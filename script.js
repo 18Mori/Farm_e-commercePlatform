@@ -141,3 +141,100 @@ $(document).ready(function() {
     // Make sure your buy-products.html has the updated
     // add-to-cart logic that calls the global addToCart(id, name, price, img) function.
 });
+
+// --- Custom Popup Functions (NEW) ---
+function showCustomPopup(message, type = 'info') {
+    const $popupOverlay = $('#custom-popup-overlay');
+    const $popupMessage = $('#custom-popup-message');
+    const $popupIcon = $('#custom-popup-icon');
+
+    $popupMessage.text(message);
+
+    $popupIcon.removeClass('success error info').addClass(type); // Clear existing types and add new one
+    // Add specific icon based on type (Font Awesome)
+    if (type === 'success') {
+        $popupIcon.html('<i class="fas fa-check-circle"></i>');
+        $popupIcon.css('color', 'var(--primary-color)'); // Green
+    } else if (type === 'error') {
+        $popupIcon.html('<i class="fas fa-times-circle"></i>');
+        $popupIcon.css('color', 'var(--error-color)'); // Red
+    } else {
+        $popupIcon.html('<i class="fas fa-info-circle"></i>');
+        $popupIcon.css('color', '#007bff'); // Blue
+    }
+
+    $popupOverlay.addClass('show'); // Make popup visible
+}
+
+function hideCustomPopup() {
+    $('#custom-popup-overlay').removeClass('show'); // Hide popup
+}
+
+
+// --- Document Ready for Global Elements ---
+$(document).ready(function() {
+    // Initialize theme on page load
+    applyTheme();
+
+    // Initialize cart on page load
+    loadCart();
+
+    // Update header login/signup/logout links on page load
+    updateHeaderLoginLinks();
+
+    // Toggle cart dropdown visibility
+    $('#cart-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('#cart-dropdown').toggleClass('show');
+    });
+
+    // Close cart dropdown if clicked outside (excluding the popup)
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.cart-icon-container').length &&
+            !$(e.target).closest('.theme-toggle-container').length &&
+            !$(e.target).closest('#custom-popup').length) { // Exclude popup
+            $('#cart-dropdown').removeClass('show');
+        }
+    });
+
+    // Handle checkout button click (MODIFIED)
+    $('#checkout-button').on('click', function() {
+        if (cartItems.length === 0) {
+            // If cart is empty, show a regular alert (or custom popup)
+            showCustomPopup('Your cart is empty. Please add items before checking out.', 'info');
+            $('#cart-dropdown').removeClass('show'); // Close dropdown
+            return; // Stop here
+        }
+
+        if (isLoggedIn()) {
+            // User is logged in, show success popup
+            showCustomPopup('Your checkout was successful! Your order has been placed.', 'success');
+            // In a real app, you would send order data to backend, clear cart etc.
+            cartItems = []; // Clear cart after successful checkout (conceptual)
+            saveCart(); // Persist empty cart
+            $('#cart-dropdown').removeClass('show'); // Close dropdown
+        } else {
+            // User is NOT logged in, redirect to sign up page
+            alert('Please sign up to complete your checkout!'); // Keep alert for immediate feedback before redirect
+            window.location.href = 'signup.html'; // Redirect to sign up
+        }
+    });
+
+    // Event Listener for Remove Buttons in Cart Dropdown
+    $('#cart-items-container').on('click', '.cart-item-remove', function() {
+        const productIdToRemove = $(this).data('id');
+        removeFromCart(productIdToRemove);
+    });
+
+    // Event Listener for Theme Toggle Button
+    $('#theme-toggle').on('click', toggleTheme);
+
+    // Event Listeners for Custom Popup Close Button and OK button
+    $('#custom-popup-overlay, .custom-popup-close, #custom-popup-ok-button').on('click', function(e) {
+        // Only hide if clicking on the overlay itself, close button, or OK button
+        if (e.target.id === 'custom-popup-overlay' || $(e.target).hasClass('custom-popup-close') || e.target.id === 'custom-popup-ok-button') {
+            hideCustomPopup();
+        }
+    });
+});
+

@@ -20,6 +20,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#contact.html">Contact</a></li> <li class="cart-icon-container">
+                      
                         <a href="#" id="cart-toggle" class="cart-link">
                             <img src="pics/shopping-bag.svg" alt="">
                             <span id="cart-count" class="cart-count animate-bounce">0</span>
@@ -157,5 +158,14 @@
             });
         });
     </script>
+
+    <div id="custom-popup-overlay" class="custom-popup-overlay">
+    <div id="custom-popup" class="custom-popup">
+        <span class="custom-popup-close">&times;</span>
+        <div id="custom-popup-icon" class="custom-popup-icon"></div>
+        <p id="custom-popup-message"></p>
+        <button id="custom-popup-ok-button" class="btn btn-primary">OK</button>
+    </div>
+</div>
 </body>
 </html>
