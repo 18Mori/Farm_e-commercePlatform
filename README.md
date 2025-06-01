@@ -6,7 +6,7 @@ Welcome to **AgriConnect** – your all-in-one digital farming partner! Whether 
 
 ## 🌾 What is AgriConnect?
 
-AgriConnect is a modern farm management and predictive analytics platform crafted to make farming simple, productive, and fun. With Elias Mwangangi (our friendly farmer persona) as your guide, you’ll have all the tools you need to manage your fields, animals, resources, and sales – right at your fingertips.
+AgriConnect is a modern farm management and predictive analytics platform crafted to make farming simple, productive, and fun. With this platform, you’ll have all the tools you need to manage your fields, animals, resources, and sales – right at your fingertips.
 
 ---
 
